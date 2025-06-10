@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import registerLottie from './../assets/register.json'
+import registerLottie from './../assets/register.json';
 import Lottie from 'lottie-react';
 
 const Register = () => {
@@ -20,10 +20,11 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center">
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-            <Lottie className='w-52' animationData={registerLottie} loop={true}></Lottie>
-          </div>
 
+          <div className="text-center lg:text-left">
+            <Lottie className="w-52" animationData={registerLottie} loop={true}></Lottie>
+          </div>
+          
           <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
             <div className="card-body">
               <h1 className="text-5xl font-bold my-2">Register now!</h1>
