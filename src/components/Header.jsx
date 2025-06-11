@@ -14,7 +14,6 @@ const Header = () => {
     </>
   );
   const { user } = useAuth();
-  console.log(user);
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -44,7 +43,7 @@ const Header = () => {
       <div className="navbar-end gap-2">
         {
             user && <>
-                <img className='w-16 h-16 rounded-full' src={user?.photoURL} title={user.displayName} alt="" />
+                <img className='w-16 h-16 object-cover rounded-full' src={user?.photoURL} title={user.displayName} alt="" />
             </>
         }
         {user ? (

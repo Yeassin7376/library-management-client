@@ -2,14 +2,28 @@ import React from 'react';
 import signInLottie from './../assets/signIn.json';
 import Lottie from 'lottie-react';
 import { Link } from 'react-router';
+import useAuth from '../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+
+  const {loginUser} = useAuth();
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result);
+        toast.success('User login successful')
+      }).catch((err) => {
+        console.log(err);
+        toast.error(err.code)
+      });
   };
 
   return (
