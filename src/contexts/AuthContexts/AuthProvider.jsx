@@ -1,45 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile
+} from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
 
-const AuthProvider = ({children}) => {
-    const [user, setUser] = useState(null)
+const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
-    const createUser = (email, password) =>{
-        return createUserWithEmailAndPassword(auth, email, password)
-    }
+  const provider = new GoogleAuthProvider();
 
-    const loginUser =(email, password)=>{
-        return signInWithEmailAndPassword(auth, email, password)
-    }
+  const createUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-    const updateUser = (updatedInfo) =>{
-        return updateProfile(auth.currentUser, updatedInfo)
-    }
+  const loginUser = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            setUser(currentUser);
-        })
+  const updateUser = (updatedInfo) => {
+    return updateProfile(auth.currentUser, updatedInfo);
+  };
 
-        return ()=> unsubscribe()
-    }, [])
+  const googleLogin = () => {
+    return signInWithPopup(auth, provider);
+  };
 
+  const logoutUser = () => {
+    return signOut(auth);
+  };
 
-    const authValues ={
-        user,
-        setUser,
-        createUser,
-        loginUser,
-        updateUser
-    }
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
 
-    return (
-        <AuthContext value={authValues}>
-            {children}
-        </AuthContext>
-    );
+    return () => unsubscribe();
+  }, []);
+
+  const authValues = {
+    user,
+    setUser,
+    createUser,
+    loginUser,
+    googleLogin,
+    updateUser,
+    logoutUser
+  };
+
+  return <AuthContext value={authValues}>{children}</AuthContext>;
 };
 
 export default AuthProvider;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Header = () => {
   const links = (
@@ -13,7 +14,16 @@ const Header = () => {
       </li>
     </>
   );
-  const { user } = useAuth();
+  const { user , logoutUser} = useAuth();
+
+  const handleLogout =()=>{
+    logoutUser()
+        .then(() => {
+            toast.success("User Logout successful")
+        }).catch((err) => {
+            toast.error(err.code)
+        });
+  }
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -47,7 +57,7 @@ const Header = () => {
             </>
         }
         {user ? (
-          <button className="btn">Logout</button>
+          <button onClick={handleLogout} className="btn">Logout</button>
         ) : (
           <>
             <Link to="/login" className="btn">Login</Link>

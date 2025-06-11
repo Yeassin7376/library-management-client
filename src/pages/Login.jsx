@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import { Link } from 'react-router';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import SocialLogin from '../components/SocialLogin';
 
 const Login = () => {
 
@@ -31,7 +32,7 @@ const Login = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
 
         <div className="text-center lg:text-left">
-          <Lottie className="w-52" animationData={signInLottie} loop={true}></Lottie>
+          <Lottie className="w-64" animationData={signInLottie} loop={true}></Lottie>
         </div>
         
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -55,6 +56,7 @@ const Login = () => {
                 </p>
               </fieldset>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
