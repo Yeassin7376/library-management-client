@@ -22,7 +22,7 @@ const Register = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
 
           <div className="text-center lg:text-left">
-            <Lottie className="w-52" animationData={registerLottie} loop={true}></Lottie>
+            <Lottie className="w-64" animationData={registerLottie} loop={true}></Lottie>
           </div>
           
           <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
