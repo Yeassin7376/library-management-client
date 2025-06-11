@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
+import useAuth from '../Hooks/useAuth';
 
 const Header = () => {
 
@@ -7,6 +8,9 @@ const Header = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addBook'>Add Book</NavLink></li>
     </>
+    const {user} = useAuth();
+    console.log(user);
+    
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
