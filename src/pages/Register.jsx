@@ -2,8 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import registerLottie from './../assets/register.json';
 import Lottie from 'lottie-react';
+import useAuth from '../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+
+  const {createUser, setUser, updateUser} = useAuth();
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,6 +19,23 @@ const Register = () => {
     const password = form.password.value;
 
     console.log(name, email, password, photo);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateUser({displayName:name, photoURL:photo})
+          .then(() => {
+            setUser({...user, displayName:name, photoURL:photo})
+            toast.success("User Created Successful")
+          }).catch((err) => {
+            setUser(user)
+            toast.error(err.code)
+          });
+        
+      }).catch((err) => {
+        console.log(err);
+        
+      });
   };
 
   return (
