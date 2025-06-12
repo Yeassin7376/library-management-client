@@ -4,6 +4,7 @@ import Home from '../pages/Home';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import AddBook from '../pages/AddBook';
+import PrivateRoute from '../routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'addBook',
-        Component: AddBook
+        element: <PrivateRoute>
+          <AddBook></AddBook>
+        </PrivateRoute>
       },
     ]
   }

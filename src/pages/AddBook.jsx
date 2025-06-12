@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 
 const AddBook = () => {
@@ -7,7 +8,15 @@ const AddBook = () => {
         const form = e.target;
         const formData = new FormData(form);
         const newCoffee = Object.fromEntries(formData.entries())
+        
         console.log(newCoffee);
+
+        // save book to the DB
+        axios.post(`${import.meta.env.VITE_API_URL}/books`, newCoffee)
+            .then(res=>{
+                console.log(res.data);
+                
+            })
     }
 
     return (
