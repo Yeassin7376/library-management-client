@@ -4,26 +4,36 @@ import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
 
 const Header = () => {
+  const { user, logoutUser } = useAuth();
+
   const links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/addBook">Add Book</NavLink>
-      </li>
+
+      {user && (
+        <>
+          <li>
+            <NavLink to="/allBooks">All Books</NavLink>
+          </li>
+          <li>
+            <NavLink to="/addBook">Add Book</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
-  const { user , logoutUser} = useAuth();
 
-  const handleLogout =()=>{
+  const handleLogout = () => {
     logoutUser()
-        .then(() => {
-            toast.success("User Logout successful")
-        }).catch((err) => {
-            toast.error(err.code)
-        });
-  }
+      .then(() => {
+        toast.success('User Logout successful');
+      })
+      .catch((err) => {
+        toast.error(err.code);
+      });
+  };
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -51,17 +61,23 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-2">
-        {
-            user && <>
-                <img className='w-16 h-16 object-cover rounded-full' src={user?.photoURL} title={user.displayName} alt="" />
-            </>
-        }
+        {user && (
+          <>
+            <img className="w-16 h-16 object-cover rounded-full" src={user?.photoURL} title={user.displayName} alt="" />
+          </>
+        )}
         {user ? (
-          <button onClick={handleLogout} className="btn">Logout</button>
+          <button onClick={handleLogout} className="btn">
+            Logout
+          </button>
         ) : (
           <>
-            <Link to="/login" className="btn">Login</Link>
-            <Link to="/register" className="btn">Register</Link>
+            <Link to="/login" className="btn">
+              Login
+            </Link>
+            <Link to="/register" className="btn">
+              Register
+            </Link>
           </>
         )}
       </div>

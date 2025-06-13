@@ -5,6 +5,7 @@ import Register from '../pages/Register';
 import Login from '../pages/Login';
 import AddBook from '../pages/AddBook';
 import PrivateRoute from '../routes/PrivateRoute';
+import AllBooks from '../pages/AllBooks/AllBooks';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,13 @@ const router = createBrowserRouter([
         path: 'addBook',
         element: <PrivateRoute>
           <AddBook></AddBook>
+        </PrivateRoute>
+      },
+      {
+        path: 'allBooks',
+        loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/books`).then(res=> res.json()),
+        element: <PrivateRoute>
+          <AllBooks></AllBooks>
         </PrivateRoute>
       },
     ]

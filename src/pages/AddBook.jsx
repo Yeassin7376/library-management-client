@@ -1,20 +1,35 @@
 import axios from 'axios';
 import React from 'react';
+import useAuth from '../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const AddBook = () => {
 
+    const {user} = useAuth();
+
     const handleAddBook = e => {
+
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const newCoffee = Object.fromEntries(formData.entries())
-        
-        console.log(newCoffee);
+        const newBook = Object.fromEntries(formData.entries())
+        newBook.email = user.email;
+        newBook.updatedBy = [];
+        console.log(newBook);
 
         // save book to the DB
-        axios.post(`${import.meta.env.VITE_API_URL}/books`, newCoffee)
+        axios.post(`${import.meta.env.VITE_API_URL}/books`, newBook)
             .then(res=>{
                 console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                }
                 
             })
     }
