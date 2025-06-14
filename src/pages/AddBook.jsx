@@ -38,7 +38,7 @@ const AddBook = () => {
         <div className='p-24 pt-0'>
             <div className='p-12 text-center space-y-4'>
                 <h1 className="text-6xl">Add Book</h1>
-                <p>It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
+                <p className=' text-gray-400 font-medium'>Use the form below to add a new book to the collection. Fill in all the required details like title, author, category, and more to help readers discover your book easily.</p>
             </div>
             <form onSubmit={handleAddBook}>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>

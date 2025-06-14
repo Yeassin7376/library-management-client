@@ -9,10 +9,12 @@ const AllBooks = () => {
     
 
     return (
-        <div>
-            {
-                books.map((book) => <BookCard key={book._id} book={book}></BookCard>)
-            }
+        <div className='my-5 md:my-12'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+                {
+                    books.map((book) => <BookCard key={book._id} book={book}></BookCard>)
+                }
+            </div>
         </div>
     );
 };

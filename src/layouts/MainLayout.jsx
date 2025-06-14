@@ -9,7 +9,7 @@ const MainLayout = () => {
             <header>
                 <Header></Header>
             </header>
-            <main className='min-h-[calc(100vh-243px)]'>
+            <main className='min-h-[calc(100vh-243px)] w-11/12 mx-auto'>
                 <Outlet></Outlet>
             </main>
             <footer>

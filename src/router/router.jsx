@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import AddBook from '../pages/AddBook';
 import PrivateRoute from '../routes/PrivateRoute';
 import AllBooks from '../pages/AllBooks/AllBooks';
+import UpdateBook from '../pages/AllBooks/UpdateBook';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,13 @@ const router = createBrowserRouter([
         loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/books`).then(res=> res.json()),
         element: <PrivateRoute>
           <AllBooks></AllBooks>
+        </PrivateRoute>
+      },
+      {
+        path: 'updateBook/:id',
+        loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`).then(res=> res.json()),
+        element: <PrivateRoute>
+          <UpdateBook></UpdateBook>
         </PrivateRoute>
       },
     ]
