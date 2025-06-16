@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router';
 import MainLayout from '../layouts/MainLayout';
-import Home from '../pages/Home';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import AddBook from '../pages/AddBook';
 import PrivateRoute from '../routes/PrivateRoute';
 import AllBooks from '../pages/AllBooks/AllBooks';
 import UpdateBook from '../pages/AllBooks/UpdateBook';
+import Home from '../pages/Home/Home';
 
 const router = createBrowserRouter([
   {
