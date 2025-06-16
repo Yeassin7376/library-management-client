@@ -5,7 +5,7 @@ import BookCard from './BookCard';
 const AllBooks = () => {
 
     const books = useLoaderData();
-    console.log(books);
+    // console.log(books);
     
 
     return (

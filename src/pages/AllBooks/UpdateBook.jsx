@@ -30,7 +30,7 @@ const UpdateBook = () => {
           timer: 1500
         });
         navigate('/allBooks');
-    }
+      }
     });
   };
 
@@ -68,18 +68,16 @@ const UpdateBook = () => {
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
             <label className="label">Category</label>
-            <select defaultValue={category} name="category" className="select w-full">
+            <select defaultValue={category} name="category" className="select w-full" required>
               <option value="" disabled={true}>
                 Pick Category
               </option>
-              <option>Drawing & Painting</option>
-              <option>Photography</option>
-              <option>Video Gaming</option>
-              <option>Fishing</option>
-              <option>Running</option>
-              <option>Cooking</option>
-              <option>Reading</option>
-              <option>Writing </option>
+              <option>Novel</option>
+              <option>Thriller</option>
+              <option>History</option>
+              <option>Drama</option>
+              <option>Sci-Fi</option>
+              <option>Romance</option>
             </select>
           </fieldset>
 

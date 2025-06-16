@@ -11,7 +11,7 @@ const BookCard = ({ book }) => {
   return (
     <div className="card bg-base-100 border shadow-sm">
         <figure>
-          <img className='w-full h-60 object-cover' src={image} alt="Shoes" />
+          <img className='w-full h-72 object-cover' src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">

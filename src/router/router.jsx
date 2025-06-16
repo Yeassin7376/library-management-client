@@ -7,6 +7,7 @@ import PrivateRoute from '../routes/PrivateRoute';
 import AllBooks from '../pages/AllBooks/AllBooks';
 import UpdateBook from '../pages/AllBooks/UpdateBook';
 import Home from '../pages/Home/Home';
+import CategoryBooks from '../pages/categoryBooks/CategoryBooks';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <UpdateBook></UpdateBook>
         </PrivateRoute>
+      },
+      {
+        path: '/categoryBooks/:category',
+        loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/books`).then(res=> res.json()),
+        element: <CategoryBooks></CategoryBooks>
       },
     ]
   }
