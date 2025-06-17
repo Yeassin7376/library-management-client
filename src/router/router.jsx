@@ -8,6 +8,7 @@ import AllBooks from '../pages/AllBooks/AllBooks';
 import UpdateBook from '../pages/AllBooks/UpdateBook';
 import Home from '../pages/Home/Home';
 import CategoryBooks from '../pages/categoryBooks/CategoryBooks';
+import BookDetails from '../pages/BookDetails/BookDetails';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
         path: '/categoryBooks/:category',
         loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/books`).then(res=> res.json()),
         element: <CategoryBooks></CategoryBooks>
+      },
+      {
+        path: '/bookDetails/:id',
+        loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`).then(res=> res.json()),
+        element: <BookDetails></BookDetails>
       },
     ]
   }

@@ -1,6 +1,6 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 import { Link, useLoaderData, useParams } from 'react-router';
-import ReactStars from 'react-stars';
 
 const CategoryBooks = () => {
   const { category } = useParams();
@@ -25,13 +25,15 @@ const CategoryBooks = () => {
                 {book.name}
                 <div className="badge badge-secondary">{book.category}</div>
               </h2>
-              <p className='text-gray-400'>Author : {book.authorName}</p>
-              <p>
-                <ReactStars count={5} value={book.rating} edit={false} size={24} isHalf={true} activeColor="#ffd700" />
-              </p>
+              <p className="text-gray-400">Author : {book.authorName}</p>
+              <div className='flex items-center gap-1'>
+                Rating : {book.rating} <FaStar className='text-amber-600'></FaStar>
+              </div>
               <p>Quantity : {book.quantity}</p>
               <div className="card-actions justify-end">
-                <Link to={``}><button className="btn btn-primary">Details</button></Link>
+                <Link to={`/bookDetails/${book._id}`}>
+                  <button className="btn btn-primary">Details</button>
+                </Link>
               </div>
             </div>
           </div>
