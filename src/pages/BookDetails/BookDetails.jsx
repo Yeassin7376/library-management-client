@@ -1,11 +1,12 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router';
+import BorrowModal from './BorrowModal';
 
 const BookDetails = () => {
   const data = useLoaderData();
   console.log(data);
-  const { name, image, rating, quantity, description, category, authorName } = data;
+  const {_id, name, image, rating, quantity, description, category, authorName } = data;
 
   return (
     <div className="my-5 md:m-10 md:p-10 lg:p-14">
@@ -17,11 +18,17 @@ const BookDetails = () => {
           <h2 className="card-title text-2xl font-bold">{name}</h2>
           <p className="text-lg text-gray-600">By {authorName}</p>
 
-          <p className='flex items-center gap-2'>Category : <span className='text-fuchsia-700'>{category}</span> | <FaStar className='text-amber-500'></FaStar> {rating}</p>
-          <p>Available : <span className='text-green-700'>{quantity}</span> copies</p>
-          <p className='text-gray-400 font-semibold'>{description}</p>
+          <p className="flex items-center gap-2">
+            Category : <span className="text-fuchsia-700">{category}</span> |{' '}
+            <FaStar className="text-amber-500"></FaStar> {rating}
+          </p>
+          <p>
+            Available : <span className="text-green-700 font-bold">{quantity}</span> copies
+          </p>
+          <p className="text-gray-400 font-semibold">{description}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Borrow</button>
+            {/* <button className="btn btn-primary">Borrow</button> */}
+            <BorrowModal _id={_id}></BorrowModal>
           </div>
         </div>
       </div>
