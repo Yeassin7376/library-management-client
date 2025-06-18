@@ -28,7 +28,7 @@ const BookDetails = () => {
           <p className="text-gray-400 font-semibold">{description}</p>
           <div className="card-actions justify-end">
             {/* <button className="btn btn-primary">Borrow</button> */}
-            <BorrowModal _id={_id}></BorrowModal>
+            <BorrowModal _id={_id} quantity={quantity}></BorrowModal>
           </div>
         </div>
       </div>

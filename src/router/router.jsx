@@ -9,6 +9,7 @@ import UpdateBook from '../pages/AllBooks/UpdateBook';
 import Home from '../pages/Home/Home';
 import CategoryBooks from '../pages/categoryBooks/CategoryBooks';
 import BookDetails from '../pages/BookDetails/BookDetails';
+import BorrowedBooks from '../pages/BorrowedBooks/BorrowedBooks';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,12 @@ const router = createBrowserRouter([
         loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`).then(res=> res.json()),
         element: <PrivateRoute>
           <BookDetails></BookDetails>
+        </PrivateRoute>
+      },
+      {
+        path: 'borrowedBooks',
+        element: <PrivateRoute>
+          <BorrowedBooks></BorrowedBooks>
         </PrivateRoute>
       },
     ]

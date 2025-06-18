@@ -2,25 +2,28 @@ import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const BorrowModal = ({ _id }) => {
   const { user } = useAuth();
+  const today = new Date().toISOString().split('T')[0];
+
+  const navigate = useNavigate();
 
   const handleBorrowSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
-    const username = form.username.value;
+    // const username = form.username.value;
     const returnDate = form.returnDate.value;
 
     const borrowInfo = {
       bookId: _id,
-      borrowedBy: {
-        username,
-        email
-      },
+      email: email,
+      borrowDate: today,
       returnDate: returnDate
     };
+
 
     // borrow info save to DB
     axios.post(`${import.meta.env.VITE_API_URL}/borrowBooks`, borrowInfo).then((res) => {
@@ -28,12 +31,19 @@ const BorrowModal = ({ _id }) => {
       if (res.data.insertedId) {
         document.getElementById('my_modal_1').close();
 
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Book Borrowed Successful',
-          showConfirmButton: false,
-          timer: 1500
+        // update the quantity number
+        axios.patch(`${import.meta.env.VITE_API_URL}/book/borrow/${_id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount) {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Book Borrowed Successful',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/')
+          }
         });
       }
     });
