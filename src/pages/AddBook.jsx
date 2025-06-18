@@ -1,10 +1,14 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect } from 'react';
 import useAuth from '../Hooks/useAuth';
 import Swal from 'sweetalert2';
 
 const AddBook = () => {
   const { user } = useAuth();
+
+  useEffect(() => {
+    document.title = `Add Book | Library`;
+  }, []);
 
   const handleAddBook = (e) => {
     e.preventDefault();

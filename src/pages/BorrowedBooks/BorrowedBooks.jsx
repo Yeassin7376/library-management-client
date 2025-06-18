@@ -4,6 +4,11 @@ import useAuth from '../../Hooks/useAuth';
 import BorrowedBookList from './BorrowedBookList';
 
 const BorrowedBooks = () => {
+
+    useEffect(() => {
+        document.title = `Borrowed Books | Library`;
+      }, []);
+
     const [borrowBooks, setBorrowBooks] = useState([]);
     const [loading, setLoading]= useState(true)
 

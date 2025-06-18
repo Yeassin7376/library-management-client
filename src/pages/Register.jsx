@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router';
 import registerLottie from './../assets/register.json';
 import Lottie from 'lottie-react';
@@ -7,6 +7,10 @@ import toast from 'react-hot-toast';
 import SocialLogin from '../components/SocialLogin';
 
 const Register = () => {
+
+  useEffect(() => {
+    document.title = `Register | Library`;
+  }, []);
 
   const {createUser, setUser, updateUser} = useAuth();
 

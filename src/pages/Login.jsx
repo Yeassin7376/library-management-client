@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import signInLottie from './../assets/signIn.json';
 import Lottie from 'lottie-react';
 import { Link } from 'react-router';
@@ -7,6 +7,10 @@ import toast from 'react-hot-toast';
 import SocialLogin from '../components/SocialLogin';
 
 const Login = () => {
+
+  useEffect(() => {
+    document.title = `Login | Library`;
+  }, []);
 
   const {loginUser} = useAuth();
 

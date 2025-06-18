@@ -58,7 +58,10 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div className='flex items-center '>
+          <img className='w-16 h-16 rounded-full' src="https://i.ibb.co/XZzQ07GB/logo.png" alt="" />
+          <a className="btn btn-ghost text-xl">Library</a>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

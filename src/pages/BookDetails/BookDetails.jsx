@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router';
 import BorrowModal from './BorrowModal';
 
 const BookDetails = () => {
+
+
+
   const data = useLoaderData();
-  console.log(data);
   const {_id, name, image, rating, quantity, description, category, authorName } = data;
+
+  useEffect(() => {
+    document.title = `${name} | Library`;
+  }, [name]);
 
   return (
     <div className="my-5 md:m-10 md:p-10 lg:p-14">

@@ -5,7 +5,6 @@ const BorrowedBookList = ({ borrowBooks, setBorrowBooks }) => {
     
 
     const handleBookReturn = (_id, bookId) =>{
-        console.log("returned", _id);
 
         axios.delete(`${import.meta.env.VITE_API_URL}/borrowBooks/${_id}`)
             .then(res => {

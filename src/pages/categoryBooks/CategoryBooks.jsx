@@ -5,10 +5,8 @@ import { Link, useLoaderData, useParams } from 'react-router';
 const CategoryBooks = () => {
   const { category } = useParams();
   const data = useLoaderData();
-  console.log(category, data);
 
   const categoryBooks = data.filter((book) => book.category?.trim().toLowerCase() === category.trim().toLowerCase());
-  console.log(categoryBooks);
 
   return (
     <div className="my-20">

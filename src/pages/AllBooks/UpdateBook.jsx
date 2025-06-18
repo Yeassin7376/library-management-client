@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const UpdateBook = () => {
+
+
+
   const book = useLoaderData();
   const { _id, name, category, authorName, rating, image, updatedBy } = book;
+
+  useEffect(() => {
+    document.title = `Update ${name} | Library`;
+  }, [name]);
 
   const { user } = useAuth();
   const navigate = useNavigate();
