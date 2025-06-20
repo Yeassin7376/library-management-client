@@ -1,18 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router';
+import { useParams } from 'react-router';
 import BorrowModal from './BorrowModal';
+import useAuth from '../../Hooks/useAuth';
+import Loading from '../../components/Loading';
 
 const BookDetails = () => {
+  const [book, setBook] = useState(null);
 
-
-
-  const data = useLoaderData();
-  const {_id, name, image, rating, quantity, description, category, authorName } = data;
+  const { user } = useAuth();
+  const params = useParams();
+  console.log(params);
 
   useEffect(() => {
-    document.title = `${name} | Library`;
-  }, [name]);
+    fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`, {
+      headers: {
+        authorization: `Bearer ${user?.accessToken}`
+      }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setBook(data);
+      });
+  }, [user?.accessToken, params?.id]);
+
+
+  useEffect(() => {
+    document.title = `${book?.name} | Library`;
+  }, [book?.name]);
+
+  if (!book) {
+    return <Loading></Loading>;
+  }
+
+  const {_id, name, image, rating, quantity, description, category, authorName } = book;
 
   return (
     <div className="my-5 md:m-10 md:p-10 lg:p-14">

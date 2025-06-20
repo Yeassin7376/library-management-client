@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
-import { Link, useLoaderData, useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
+import {categoryBooksPromise } from '../../apis/booksPromiseApi';
+import Loading from '../../components/Loading';
 
 const CategoryBooks = () => {
   const { category } = useParams();
-  const data = useLoaderData();
+  const [books , setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const categoryBooks = data.filter((book) => book.category?.trim().toLowerCase() === category.trim().toLowerCase());
+  useEffect(()=>{
+      categoryBooksPromise(category)
+        .then((data) => {
+          setBooks(data);
+          setLoading(false);
+        }).catch((err) => {
+          console.log("failed to load books", err);
+        });
+  }, [category])
+
+
+  const categoryBooks = books.filter((book) => book.category?.trim().toLowerCase() === category.trim().toLowerCase());
+
+  if (loading) {
+    return <Loading></Loading>
+  }
 
   return (
     <div className="my-20">

@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'allBooks',
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/books`).then((res) => res.json()),
+        // loader: () =>,
         element: (
           <PrivateRoute>
             <AllBooks></AllBooks>
@@ -60,13 +60,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/categoryBooks/:category',
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/books`).then((res) => res.json()),
         element: <CategoryBooks></CategoryBooks>,
         hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/bookDetails/:id',
-        loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`).then((res) => res.json()),
         element: (
           <PrivateRoute>
             <BookDetails></BookDetails>

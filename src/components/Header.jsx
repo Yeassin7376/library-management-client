@@ -42,7 +42,7 @@ const Header = () => {
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -59,7 +59,7 @@ const Header = () => {
           </ul>
         </div>
         <div className='flex items-center '>
-          <img className='w-16 h-16 rounded-full' src="https://i.ibb.co/XZzQ07GB/logo.png" alt="" />
+          <img className='w-10 h-10 md:w-16 md:h-16 rounded-full' src="https://i.ibb.co/XZzQ07GB/logo.png" alt="" />
           <a className="btn btn-ghost text-xl">Library</a>
         </div>
       </div>
@@ -69,7 +69,7 @@ const Header = () => {
       <div className="navbar-end gap-2">
         {user && (
           <>
-            <img className="w-16 h-16 object-cover rounded-full" src={user?.photoURL} title={user.displayName} alt="" />
+            <img className="w-10 h-10 md:w-16 md:h-16 object-cover rounded-full" src={user?.photoURL} title={user.displayName} alt="" />
           </>
         )}
         {user ? (

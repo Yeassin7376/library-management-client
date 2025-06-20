@@ -13,9 +13,13 @@ const BorrowModal = ({ _id, quantity }) => {
 
   const navigate = useNavigate();
   useEffect(()=>{
-    axios.get(`${import.meta.env.VITE_API_URL}/borrowBooks?email=${user.email}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/borrowBooks?email=${user.email}`, {
+      headers:{
+        Authorization : `Bearer ${user?.accessToken}`
+      }
+    })
     .then(res=> setBorrowBooks(res.data))
-  }, [user.email])
+  }, [user?.email, user?.accessToken])
 
   const handleLetBorrow =()=>{
 

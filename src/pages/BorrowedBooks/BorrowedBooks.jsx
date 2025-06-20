@@ -15,14 +15,18 @@ const BorrowedBooks = () => {
     const {user} =useAuth();
 
     useEffect(()=>{
-        axios.get(`${import.meta.env.VITE_API_URL}/borrowBooks?email=${user.email}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/borrowBooks?email=${user.email}`, {
+            headers :{
+                Authorization : `Bearer ${user.accessToken}`
+            }
+        })
             .then(res=> {
                 setBorrowBooks(res.data)
                 setLoading(false)
             })
 
         
-    }, [user?.email])
+    }, [user?.email, user.accessToken])
     // console.log(borrowBooks);
     
     if (loading) {
