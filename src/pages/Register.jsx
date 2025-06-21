@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import registerLottie from './../assets/register.json';
 import Lottie from 'lottie-react';
 import useAuth from '../Hooks/useAuth';
@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import SocialLogin from '../components/SocialLogin';
 
 const Register = () => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = `Register | Library`;
@@ -23,7 +24,6 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(name, email, password, photo);
 
     createUser(email, password)
       .then((result) => {
@@ -31,14 +31,15 @@ const Register = () => {
         updateUser({displayName:name, photoURL:photo})
           .then(() => {
             setUser({...user, displayName:name, photoURL:photo})
-            toast.success("User Created Successful")
+            toast.success("User Created Successful");
+            navigate('/')
           }).catch((err) => {
             setUser(user)
             toast.error(err.code)
           });
         
       }).catch((err) => {
-        console.log(err);
+        toast.error(err.code)
         
       });
   };

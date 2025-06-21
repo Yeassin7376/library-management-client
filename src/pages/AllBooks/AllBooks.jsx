@@ -9,7 +9,6 @@ const AllBooks = () => {
   const [isFiltered, setIsFiltered] = useState(false);
 
   const { user } = useAuth();
-  console.log(user);
 
   useEffect(() => {
     document.title = `All Books | Library`;

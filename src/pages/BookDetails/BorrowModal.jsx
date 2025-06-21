@@ -50,13 +50,11 @@ const BorrowModal = ({ _id, quantity }) => {
 
     // borrow info save to DB
     axios.post(`${import.meta.env.VITE_API_URL}/borrowBooks`, borrowInfo).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         document.getElementById('my_modal_1').close();
 
         // update the quantity number
         axios.patch(`${import.meta.env.VITE_API_URL}/book/borrow/${_id}`).then((res) => {
-          console.log(res.data);
           if (res.data.modifiedCount) {
             Swal.fire({
               position: 'top-end',

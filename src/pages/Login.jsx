@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import signInLottie from './../assets/signIn.json';
 import Lottie from 'lottie-react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
 import SocialLogin from '../components/SocialLogin';
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = `Login | Library`;
@@ -19,14 +21,12 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     loginUser(email, password)
       .then((result) => {
-        console.log(result);
-        toast.success('User login successful')
+        toast.success('login successful, ', result.user.displayName);
+        navigate(location.state || '/')
       }).catch((err) => {
-        console.log(err);
         toast.error(err.code)
       });
   };
@@ -54,7 +54,7 @@ const Login = () => {
                 <button className="btn btn-neutral mt-4">Login</button>
                 <p className="mt-2 mb-3">
                   Don't have an account? Please{' '}
-                  <Link to="/register" className="text-blue-500 underline">
+                  <Link to="/register" state={`${location?.state || null}`} className="text-blue-500 underline">
                     Register
                   </Link>
                 </p>

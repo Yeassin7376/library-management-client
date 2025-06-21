@@ -22,7 +22,6 @@ const AddBook = () => {
     newBook.quantity = parseInt(newBook.quantity, 10);
     newBook.rating = parseInt(newBook.rating, 10);
 
-    console.log(newBook);
 
     // save book to the DB
     axios.post(`${import.meta.env.VITE_API_URL}/books`, newBook, {
@@ -30,7 +29,6 @@ const AddBook = () => {
         Authorization: `Bearer ${user?.accessToken}`
       }
     }).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           position: 'top-end',

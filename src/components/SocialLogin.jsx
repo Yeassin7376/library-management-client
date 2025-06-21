@@ -1,18 +1,19 @@
 import React from 'react';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router';
 
 const SocialLogin = () => {
     const {googleLogin} = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleGoogleSignIn =()=>{
-        console.log("google log in ");
         googleLogin()
             .then((result) => {
-                console.log(result)
-                toast.success("User Login Successful")
+                toast.success(`Login Successful, ${result.user.displayName}`);
+                navigate(location.state || '/')
             }).catch((err) => {
-                console.log(err)
                 toast.error(err.message)
             });
     }

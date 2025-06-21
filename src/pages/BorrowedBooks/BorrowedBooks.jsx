@@ -27,7 +27,6 @@ const BorrowedBooks = () => {
 
         
     }, [user?.email, user.accessToken])
-    // console.log(borrowBooks);
     
     if (loading) {
         return <div className='w-full flex justify-center'>

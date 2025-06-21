@@ -10,7 +10,6 @@ const BookDetails = () => {
 
   const { user } = useAuth();
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`, {
@@ -20,7 +19,6 @@ const BookDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setBook(data);
       });
   }, [user?.accessToken, params?.id]);

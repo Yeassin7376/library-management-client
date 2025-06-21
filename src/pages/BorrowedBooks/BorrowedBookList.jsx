@@ -8,11 +8,9 @@ const BorrowedBookList = ({ borrowBooks, setBorrowBooks }) => {
 
         axios.delete(`${import.meta.env.VITE_API_URL}/borrowBooks/${_id}`)
             .then(res => {
-                console.log(res.data);
                 if (res.data.deletedCount) {
                     axios.patch(`${import.meta.env.VITE_API_URL}/book/return/${bookId}`)
                     .then((res) => {
-                        console.log(res.data);
                         if (res.data.modifiedCount) {
                             const remainingBooks = borrowBooks.filter(book => book._id !== _id)
                             setBorrowBooks(remainingBooks);

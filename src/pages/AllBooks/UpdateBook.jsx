@@ -1,31 +1,42 @@
-import React, { useEffect } from 'react';
-import { useLoaderData, useNavigate } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Loading from '../../components/Loading';
 
 const UpdateBook = () => {
-
-
-
-  const book = useLoaderData();
-  const { _id, name, category, authorName, rating, image, updatedBy } = book;
-
-  useEffect(() => {
-    document.title = `Update ${name} | Library`;
-  }, [name]);
-
+  const [book, setBook] = useState(null);
+  const params = useParams();
   const { user } = useAuth();
   const navigate = useNavigate();
 
+  useEffect(()=>{
+    fetch(`${import.meta.env.VITE_API_URL}/book/${params.id}`, {
+      headers:{
+        Authorization: `Bearer ${user.accessToken}`
+      }
+    }).then((res) => res.json())
+      .then(data=>{
+        setBook(data)
+      })
+  }, [params.id, user.accessToken])
+  useEffect(() => {
+    document.title = `Update ${book?.name} | Library`;
+  }, [book?.name]);
+
+  if (!book) {
+    return <Loading></Loading>
+  }
+
+  const { _id, name, category, authorName, rating, image, updatedBy } = book;
+
   const handleUpdateBook = (e) => {
     e.preventDefault();
-    console.log('update');
     const form = e.target;
     const formData = new FormData(form);
     const updatedData = Object.fromEntries(formData.entries());
     updatedData.updatedBy = [...updatedBy, user.email];
-    console.log(updatedData);
 
     axios.patch(`${import.meta.env.VITE_API_URL}/book/${_id}`, updatedData).then((res) => {
       if (res.data.modifiedCount) {
