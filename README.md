@@ -1,12 +1,30 @@
-# React + Vite
+# Project Name (library-management)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**One-line:** A short summary of the project.
 
-Currently, two official plugins are available:
+**Live demo:** [library-management](https://b11a11-library-management.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech
+- React
+- Tailwind CSS / DaisyUI
+- Firebase Auth (if used)
+- Deployed on: Firebase Hosting / Vercel
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+- User authentication (Firebase)
+- Responsive UI (mobile-first)
+- CRUD operations for items/jobs/library records
+- Search & filter
+
+## Run locally
+1. `git clone https://github.com/Yeassin7376/library-management-client.git`
+2. `cd library-management-client`
+3. `npm install`
+4. create `.env` 
+5. `npm run dev`
+
+## Dependencies
+- react, react-router, tailwindcss, axios, firebase
+
+
