@@ -6,10 +6,10 @@ import Footer from '../components/Footer';
 const MainLayout = () => {
     return (
         <div>
-            <header>
+            <header className=' sticky top-0 left-0 right-0 z-50'>
                 <Header></Header>
             </header>
-            <main className='min-h-[calc(100vh-243px)] w-11/12 mx-auto'>
+            <main className='min-h-[calc(100vh-243px)] px-3 md:px-10 lg:px-20'>
                 <Outlet></Outlet>
             </main>
             <footer>

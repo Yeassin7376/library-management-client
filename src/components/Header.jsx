@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import LibraryLogo from './LibraryLogo';
 
 const Header = () => {
   const { user, logoutUser } = useAuth();
@@ -39,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar second px-3 md:px-10 lg:px-20">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-0">
@@ -59,8 +60,7 @@ const Header = () => {
           </ul>
         </div>
         <div className='flex items-center '>
-          <img className='w-10 h-10 md:w-16 md:h-16 rounded-full' src="https://i.ibb.co/XZzQ07GB/logo.png" alt="" />
-          <a className="btn btn-ghost text-xl">Library</a>
+          <LibraryLogo></LibraryLogo>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -73,15 +73,15 @@ const Header = () => {
           </>
         )}
         {user ? (
-          <button onClick={handleLogout} className="btn">
+          <button onClick={handleLogout} className="btn first border-none text-white">
             Logout
           </button>
         ) : (
           <>
-            <Link to="/login" className="btn">
+            <Link to="/login" className="btn first border-none text-white">
               Login
             </Link>
-            <Link to="/register" className="btn">
+            <Link to="/register" className="btn btn-outline text-black  hover:bg-[#32cf91]">
               Register
             </Link>
           </>

@@ -16,7 +16,7 @@ const BannerSlider = () => {
       };
 
     return (
-        <div className="slider-container my-12 md:my-20 p-5 md:p-10 border border-gray-300 rounded-2xl">
+        <div className="slider-container mt-10 w-full">
             <Slider {...settings}>
                 <div>
                     <img className='w-full h-96 object-cover' src="https://i.ibb.co/yLv5K8J/imageshh.jpg" alt="" />

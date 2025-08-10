@@ -15,9 +15,9 @@ const Home = () => {
 
     return (
         <div>
-            <section>
+            {/* <section>
                 <AnimatedSection></AnimatedSection>
-            </section>
+            </section> */}
 
             <section>
                 <BannerSlider></BannerSlider>
