@@ -12,6 +12,7 @@ import BookDetails from '../pages/BookDetails/BookDetails';
 import BorrowedBooks from '../pages/BorrowedBooks/BorrowedBooks';
 import Error from '../pages/ErrorPage/Error';
 import Loading from '../components/Loading';
+import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         )
       },
+      {
+        path: 'privacyPolicy',
+        Component: PrivacyPolicy
+      }
       
     ]
   },
