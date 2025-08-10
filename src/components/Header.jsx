@@ -12,12 +12,12 @@ const Header = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
+      <li>
+        <NavLink to="/allBooks">All Books</NavLink>
+      </li>
 
       {user && (
         <>
-          <li>
-            <NavLink to="/allBooks">All Books</NavLink>
-          </li>
           <li>
             <NavLink to="/addBook">Add Book</NavLink>
           </li>
@@ -26,6 +26,12 @@ const Header = () => {
           </li>
         </>
       )}
+      <li>
+        <NavLink to="/">Contact us</NavLink>
+      </li>
+      <li>
+        <NavLink to="/">About us</NavLink>
+      </li>
     </>
   );
 
@@ -44,13 +50,7 @@ const Header = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden p-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {' '}
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />{' '}
             </svg>
@@ -59,7 +59,7 @@ const Header = () => {
             {links}
           </ul>
         </div>
-        <div className='flex items-center '>
+        <div className="flex items-center ">
           <LibraryLogo></LibraryLogo>
         </div>
       </div>

@@ -95,7 +95,7 @@ const Register = () => {
                   At least one uppercase letter
                 </p>
 
-                <button type="submit" className="btn btn-neutral mt-4">
+                <button type="submit" className="btn first mt-4">
                   Register
                 </button>
                 <p className="mt-2 mb-3">

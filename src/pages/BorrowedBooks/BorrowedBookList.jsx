@@ -70,7 +70,7 @@ const BorrowedBookList = ({ borrowBooks, setBorrowBooks }) => {
               <td>{book.borrowDate}</td>
               <td>{book.returnDate}</td>
               <th>
-                <button onClick={()=> handleBookReturn(book._id, book.bookId)} className="btn bg-amber-100 btn-xs">Return</button>
+                <button onClick={()=> handleBookReturn(book._id, book.bookId)} className="btn second btn-xs">Return</button>
               </th>
             </tr>
           ))}

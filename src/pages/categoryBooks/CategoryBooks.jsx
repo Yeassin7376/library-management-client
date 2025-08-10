@@ -45,10 +45,9 @@ const CategoryBooks = () => {
               <div className='flex items-center gap-1'>
                 Rating : {book.rating} <FaStar className='text-amber-600'></FaStar>
               </div>
-              <p>Quantity : {book.quantity}</p>
               <div className="card-actions justify-end">
                 <Link to={`/bookDetails/${book._id}`}>
-                  <button className="btn btn-primary">Details</button>
+                  <button className="btn first">Details</button>
                 </Link>
               </div>
             </div>

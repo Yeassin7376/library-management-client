@@ -73,7 +73,7 @@ const BorrowModal = ({ _id, quantity }) => {
   return (
     <div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <button className="btn btn-primary" disabled={quantity == 0} onClick={handleLetBorrow}>
+      <button className="btn first" disabled={quantity == 0 || !user.email} onClick={handleLetBorrow}>
         Borrow
       </button>
       <dialog id="my_modal_1" className="modal">
@@ -98,7 +98,7 @@ const BorrowModal = ({ _id, quantity }) => {
                 <input type="date" name="returnDate" className="input" required />
               </fieldset>
               {/* if there is a button in form, it will close the modal */}
-              <button type="submit" className="btn w-full mt-5">
+              <button type="submit" className="btn second w-full mt-5">
                 Submit
               </button>
             </form>

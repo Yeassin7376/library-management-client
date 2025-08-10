@@ -42,9 +42,7 @@ const router = createBrowserRouter([
         path: 'allBooks',
         // loader: () =>,
         element: (
-          <PrivateRoute>
             <AllBooks></AllBooks>
-          </PrivateRoute>
         ),
         hydrateFallbackElement: <Loading></Loading>
       },
@@ -65,9 +63,7 @@ const router = createBrowserRouter([
       {
         path: '/bookDetails/:id',
         element: (
-          <PrivateRoute>
             <BookDetails></BookDetails>
-          </PrivateRoute>
         ),
         hydrateFallbackElement: <Loading></Loading>
       },

@@ -51,7 +51,7 @@ const Login = () => {
                 <div>
                   <a className="link link-hover">Forgot password?</a>
                 </div>
-                <button className="btn btn-neutral mt-4">Login</button>
+                <button className="btn first mt-4">Login</button>
                 <p className="mt-2 mb-3">
                   Don't have an account? Please{' '}
                   <Link to="/register" state={`${location?.state || null}`} className="text-blue-500 underline">
