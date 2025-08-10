@@ -16,16 +16,22 @@ const BannerSlider = () => {
       };
 
     return (
-        <div className="slider-container mt-10 w-full">
+        <div className="slider-container w-full h-4/6">
             <Slider {...settings}>
                 <div>
-                    <img className='w-full h-96 object-cover' src="https://i.ibb.co/yLv5K8J/imageshh.jpg" alt="" />
+                    <img className='w-full h-52 md:h-96 lg:h-[450px] object-cover' src="https://i.ibb.co.com/Fb235fJD/photo-1580537659466-0a9bfa916a54.jpg" alt="" />
                 </div>
                 <div>
-                    <img className='w-full h-96 object-cover' src="https://i.ibb.co/HTqXd268/download-9.jpg" alt="" />
+                    <img className='w-full h-52 md:h-96 lg:h-[450px] object-cover' src="https://i.ibb.co.com/4ZD16nXf/istockphoto-2162169941-612x612.webp" alt="" />
                 </div>
                 <div>
-                    <img className='w-full h-96 object-cover' src="https://i.ibb.co/QFjHpc2j/images-3.jpg" alt="" />
+                    <img className='w-full h-52 md:h-96 lg:h-[450px] object-cover' src="https://i.ibb.co/yLv5K8J/imageshh.jpg" alt="" />
+                </div>
+                <div>
+                    <img className='w-full h-52 md:h-96 lg:h-[450px] object-cover' src="https://i.ibb.co.com/cKGXLCSw/istockphoto-2209493896-612x612.webp" alt="" />
+                </div>
+                <div>
+                    <img className='w-full h-52 md:h-96 lg:h-[450px] object-cover object-bottom' src="https://i.ibb.co.com/355pCCLS/istockphoto-2177387954-612x612.webp" alt="" />
                 </div>
             </Slider>
         </div>

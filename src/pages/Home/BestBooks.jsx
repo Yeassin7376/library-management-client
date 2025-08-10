@@ -1,11 +1,12 @@
 import React from 'react';
+import SectionTitile from '../../components/SectionTitile';
 
 const BestBooks = () => {
   return (
     <div>
       <div className="my-12 md:my-20">
         <div className="text-center space-y-5">
-          <h1 className="text-xl md:text-4xl font-bold">Popular Books Readers Love</h1>
+          <SectionTitile TitleText={'Popular Books Readers Love'}></SectionTitile>
           <p className="text-gray-500">
           Discover top-rated books that readers around the world can’t put down. From timeless classics to modern must-reads — there’s something for everyone.
           </p>

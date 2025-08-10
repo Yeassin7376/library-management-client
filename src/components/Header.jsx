@@ -69,7 +69,7 @@ const Header = () => {
       <div className="navbar-end gap-2">
         {user && (
           <>
-            <img className="w-10 h-10 md:w-16 md:h-16 object-cover rounded-full" src={user?.photoURL} title={user.displayName} alt="" />
+            <img className="w-9 h-9 md:w-16 md:h-16 object-cover rounded-full" src={user?.photoURL} title={user.displayName} alt="" />
           </>
         )}
         {user ? (

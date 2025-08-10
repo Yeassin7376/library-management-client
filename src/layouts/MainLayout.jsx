@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className='w-full'>
             <header className=' sticky top-0 left-0 right-0 z-50'>
                 <Header></Header>
             </header>
