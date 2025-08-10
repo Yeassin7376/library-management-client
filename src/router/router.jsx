@@ -13,6 +13,7 @@ import BorrowedBooks from '../pages/BorrowedBooks/BorrowedBooks';
 import Error from '../pages/ErrorPage/Error';
 import Loading from '../components/Loading';
 import PrivacyPolicy from '../pages/PrivacyPolicy/PrivacyPolicy';
+import AboutUs from '../pages/AboutUs/AboutUs';
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: 'privacyPolicy',
         Component: PrivacyPolicy
+      },
+      {
+        path: 'aboutUs',
+        Component: AboutUs
       }
       
     ]

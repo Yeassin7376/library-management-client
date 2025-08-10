@@ -30,7 +30,7 @@ const Header = () => {
         <NavLink to="/privacyPolicy">Privacy & Policy </NavLink>
       </li>
       <li>
-        <NavLink to="/">About us</NavLink>
+        <NavLink to="/aboutUs">About us</NavLink>
       </li>
     </>
   );
